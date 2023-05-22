@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:21:34 by tchantro          #+#    #+#             */
-/*   Updated: 2023/05/17 17:26:19 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:47:47 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	PhoneBook	repertory;
 	Contact		contact;
 	std::string buff;
-	int			i = 0;
+	int	i = 0;
 
 		while (buff != "EXIT")
 		{
@@ -29,15 +29,17 @@ int	main(void)
 			std::getline(std::cin, buff);
 			if (buff == "ADD")
 			{
-				contact.first_step();
-				contact.second_step();
-				contact.third_step();
-				contact.fourth_step();
-				contact.fifth_step();
+				repertory.add_info(i);
 				i++;
+				if (i == 8)
+					i = 0;
 			}
 			else if (buff == "SEARCH")
+			{
 				repertory.search();
+				repertory.print_index_info();
+				
+			}
 			else if (buff != "EXIT" && buff.size() != 0)
 			{
 				std::cout << "Wrong argument. ";
