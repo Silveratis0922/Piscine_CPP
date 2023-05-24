@@ -6,12 +6,13 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:21:34 by tchantro          #+#    #+#             */
-/*   Updated: 2023/05/22 17:47:47 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:43:25 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+#include <ios>
 #include <iostream>
 #include <string>
 
@@ -25,11 +26,19 @@ int	main(void)
 
 		while (buff != "EXIT")
 		{
+
 			std::cout << "Enter your command: ";
 			std::getline(std::cin, buff);
+			if (std::cin.eof())
+			{
+				std::cout << std::endl;
+				std::cout << "Ctrl + D. Leaving the program." << std::endl;
+				return (1);
+			}
 			if (buff == "ADD")
 			{
-				repertory.add_info(i);
+				if (repertory.add_info(i))
+					return (1);
 				i++;
 				if (i == 8)
 					i = 0;
@@ -37,7 +46,8 @@ int	main(void)
 			else if (buff == "SEARCH")
 			{
 				repertory.search();
-				repertory.print_index_info();
+				if (repertory.print_index_info())
+					return (1);
 				
 			}
 			else if (buff != "EXIT" && buff.size() != 0)

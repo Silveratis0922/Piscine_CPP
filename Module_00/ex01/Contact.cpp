@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:27:01 by tchantro          #+#    #+#             */
-/*   Updated: 2023/05/22 14:58:34 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:41:02 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ Contact::~Contact(void)
 	return ;
 }
 
-
-void	Contact::first_step(void)
+int	Contact::first_step(void)
 {
 	std::string str;
 
@@ -33,8 +32,15 @@ void	Contact::first_step(void)
 	{
 		std::cout << "Enter your first name: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Ctrl + D. Leaving the program." << std::endl;
+			return (1);
+		}
 	}
 	this->first_name = str;
+	return (0);
 }
 
 std::string	Contact::get_first_name(void)
@@ -42,7 +48,7 @@ std::string	Contact::get_first_name(void)
 	return (this->first_name);
 }
 
-void	Contact::second_step(void)
+int	Contact::second_step(void)
 {
 	std::string str;
 
@@ -51,8 +57,15 @@ void	Contact::second_step(void)
 	{
 		std::cout << "Enter your second name: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Ctrl + D. Leaving the program." << std::endl;
+			return (1);
+		}
 	}
 	this->last_name = str;
+	return (0);
 }
 
 std::string	Contact::get_last_name(void)
@@ -60,7 +73,7 @@ std::string	Contact::get_last_name(void)
 	return (this->last_name);
 }
 
-void	Contact::third_step(void)
+int	Contact::third_step(void)
 {
 	std::string str;
 
@@ -69,8 +82,15 @@ void	Contact::third_step(void)
 	{
 		std::cout << "Enter your nickname: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Ctrl + D. Leaving the program." << std::endl;
+			return (1);
+		}
 	}
 	this->nickname = str;
+	return (0);
 }
 
 std::string	Contact::get_nickname(void)
@@ -78,7 +98,7 @@ std::string	Contact::get_nickname(void)
 	return (this->nickname);
 }
 
-void	Contact::fourth_step(void)
+int	Contact::fourth_step(void)
 {
 	std::string str;
 
@@ -87,8 +107,15 @@ void	Contact::fourth_step(void)
 	{
 		std::cout << "Enter your phone number: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Ctrl + D. Leaving the program." << std::endl;
+			return (1);
+		}
 	}
 	this->phone_number = str;
+	return (0);
 }
 
 std::string	Contact::get_phone_number(void)
@@ -96,7 +123,7 @@ std::string	Contact::get_phone_number(void)
 	return (this->phone_number);
 }
 
-void	Contact::fifth_step(void)
+int	Contact::fifth_step(void)
 {
 	std::string str;
 
@@ -105,8 +132,15 @@ void	Contact::fifth_step(void)
 	{
 		std::cout << "Enter your darkest secret: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Ctrl + D. Leaving the program." << std::endl;
+			return (1);
+		}
 	}
 	this->darkest_secret = str;
+	return (0);
 }
 
 std::string	Contact::get_secret(void)

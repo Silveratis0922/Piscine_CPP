@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:16:41 by tchantro          #+#    #+#             */
-/*   Updated: 2023/05/22 18:28:20 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:39:35 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	PhoneBook::print_nickname(int j)
 		std::cout << str << "|" << std::endl;
 }
 
-void	PhoneBook::print_index_info(void)
+int	PhoneBook::print_index_info(void)
 {
 		std::string	str;
 		int			size = 0;
@@ -84,20 +84,24 @@ void	PhoneBook::print_index_info(void)
 
 		std::cout << "For more information enter a number between 1 and 8: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Ctrl + D. Leaving the program." << std::endl;
+			return (1);
+		}
 		size = str.size();
 		if (size != 1)
 		{
 			std::cout << "Sorry, I don't understand. Back to menu." << std::endl;
-			return ;
+			return (0);
 		}
 		index = (int)str[0] - 48;
 		if (index > 0 && index < 9)
 			print_info(index - 1);
 		else
-		{
 			std::cout << "Index is not between 1 and 8. Back to menu." << std::endl;
-			return ;
-		}
+		return (0);
 }
 
 void	PhoneBook::search(void)
@@ -130,14 +134,19 @@ void	PhoneBook::search(void)
 	}
 }
 
-void	PhoneBook::add_info(int i)
+int	PhoneBook::add_info(int i)
 {
-	this->tab[i].first_step();
-	this->tab[i].second_step();
-	this->tab[i].third_step();
-	this->tab[i].fourth_step();
-	this->tab[i].fifth_step();
-
+	if (this->tab[i].first_step())
+		return (1);
+	if (this->tab[i].second_step())
+		return (1);
+	if (this->tab[i].third_step())
+		return (1);
+	if (this->tab[i].fourth_step())
+		return (1);
+	if (this->tab[i].fifth_step())
+		return (1);
+	return (0);
 }
 
 void	PhoneBook::print_info(int i)
