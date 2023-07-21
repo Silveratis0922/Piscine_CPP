@@ -5,13 +5,11 @@ BLUE	= \033[0;34m
 END		= \033[0m
 
 ##### Names #####
-NAME	= horde
+NAME	= brain
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-_SRCS	=	main.cpp \
-			Zombie.cpp \
-			zombieHorde.cpp
+_SRCS	=	main.cpp
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####
