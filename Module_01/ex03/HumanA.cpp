@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 11:15:30 by tchantro          #+#    #+#             */
-/*   Updated: 2023/08/14 11:15:32 by tchantro         ###   ########.fr       */
+/*   Created: 2023/08/14 11:39:47 by tchantro          #+#    #+#             */
+/*   Updated: 2023/08/22 12:15:25 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <string>
+#include "HumanA.hpp"
 
-Zombie::Zombie(void)
+HumanA::HumanA(std::string name, Weapon& weapon) : weapon(weapon)
+{
+	set_name(name);
+	return ;
+}
+
+HumanA::~HumanA(void)
 {
 	return ;
 }
 
-Zombie::~Zombie(void)
+std::string	HumanA::get_name(void)
 {
-	std::cout << this->get_name() << ": Brain Deeeeaaad...";
-	std::cout << std::endl;
-	return ;
+	return (this->name);
 }
 
-void	Zombie::annonce(void)
+void	HumanA::set_name(std::string name)
 {
-	std::cout << this->get_name() << ": BraiiiiiiinnnzzzZ...";
-	std::cout << std::endl;
+	this->name = name;
 }
 
-std::string	Zombie::get_name(void)
+void	HumanA::attack(void)
 {
-		return (this->name);
-}
-
-void	Zombie::set_name(std::string name)
-{
-		this->name = name;
+		std::cout << get_name();
+		std::cout << " attacks with their ";
+		std::cout << weapon.getType();
+		std::cout << std::endl;
 }
