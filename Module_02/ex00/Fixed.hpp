@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 11:45:39 by tchantro          #+#    #+#             */
-/*   Updated: 2023/08/28 14:47:46 by tchantro         ###   ########.fr       */
+/*   Created: 2023/09/01 14:11:42 by tchantro          #+#    #+#             */
+/*   Updated: 2023/09/04 11:45:39 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-int	main(void)
+#include <string>
+#include <iostream>
+
+class	Fixed
 {
-	Harl	test;
+public:
+	
+	Fixed(void);
+	Fixed(Fixed const & copy);
+	~Fixed(void);
 
-	test.complain("DEBUG");
-	test.complain("INFO");
-	test.complain("WARNING");
-	test.complain("ERROR");
-	test.complain("");
-	test.complain("ok");
-	return (0);
-}
+	Fixed&	operator=(Fixed const & egl);
+	
+	int		getRawBits( void ) const;
+	void	setRawBits( int const raw );
+
+private:
+
+	int	_integer;
+	int	_decimal;
+};
+
+#endif

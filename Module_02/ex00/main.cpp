@@ -5,22 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 11:45:39 by tchantro          #+#    #+#             */
-/*   Updated: 2023/08/28 14:47:46 by tchantro         ###   ########.fr       */
+/*   Created: 2023/09/01 14:09:49 by tchantro          #+#    #+#             */
+/*   Updated: 2023/09/01 15:05:40 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Fixed.hpp"
 
 int	main(void)
 {
-	Harl	test;
+	Fixed	a;
+	Fixed	b(a);
+	Fixed	c;
 
-	test.complain("DEBUG");
-	test.complain("INFO");
-	test.complain("WARNING");
-	test.complain("ERROR");
-	test.complain("");
-	test.complain("ok");
+	c = b;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 	return (0);
 }

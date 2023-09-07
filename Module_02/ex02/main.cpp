@@ -5,22 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 11:45:39 by tchantro          #+#    #+#             */
-/*   Updated: 2023/08/28 14:47:46 by tchantro         ###   ########.fr       */
+/*   Created: 2023/09/01 14:09:49 by tchantro          #+#    #+#             */
+/*   Updated: 2023/09/06 14:41:38 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Fixed.hpp"
 
-int	main(void)
+int main(void)
 {
-	Harl	test;
+	Fixed a;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
 
-	test.complain("DEBUG");
-	test.complain("INFO");
-	test.complain("WARNING");
-	test.complain("ERROR");
-	test.complain("");
-	test.complain("ok");
-	return (0);
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::min(a, b) << std::endl;
+	return 0;
 }
