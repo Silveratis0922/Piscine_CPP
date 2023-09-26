@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 14:22:25 by tchantro          #+#    #+#             */
-/*   Updated: 2023/09/15 15:19:58 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:25:46 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	void		set_name(std::string name);
 	std::string	get_name(void) const;
 
-private:
+protected:
 	std::string	_name;
 	int						_hit_points;
 	unsigned int			_energy_points;

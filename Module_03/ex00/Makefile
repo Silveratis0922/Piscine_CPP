@@ -15,7 +15,7 @@ _SRCS	=	main.cpp \
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####
 
-%.o: %.cpp
+%.o: %.cpp ClapTrap.hpp
 	@$(CC) -c $(CFLAGS) $< -o $@
 
 all: $(NAME)

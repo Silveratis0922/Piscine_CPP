@@ -6,46 +6,19 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 14:22:37 by tchantro          #+#    #+#             */
-/*   Updated: 2023/09/12 13:10:33 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/09/18 10:51:16 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	Bobby("Bobby");
+	ScavTrap	Bobby("Bobby");
+	ClapTrap	Dodo("Bobby");
 
-	Bobby.info_character();
 	Bobby.attack("Daisy");
-	Bobby.takeDamage(4);
-	Bobby.info_character();
-	Bobby.attack("Daisy");
-	Bobby.takeDamage(4);
-	Bobby.info_character();
-	Bobby.beRepaired(1);
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.takeDamage(4);
-	Bobby.info_character();
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.attack("Daisy");
-	Bobby.takeDamage(4);
-	Bobby.beRepaired(1);
-	Bobby.beRepaired(1);
-	Bobby.info_character();
-	Bobby.attack("Daisy");
-	Bobby.takeDamage(4);
+	Dodo.attack("Daisy");
 	return (0);
 }

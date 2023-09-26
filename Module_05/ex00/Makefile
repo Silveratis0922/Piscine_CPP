@@ -5,14 +5,12 @@ BLUE	= \033[0;34m
 END		= \033[0m
 
 ##### Names #####
-NAME	= canon
+NAME	= bureaucrat
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 _SRCS	=	main.cpp \
-			ClapTrap.cpp \
-			ScavTrap.cpp \
-			FragTrap.cpp
+			Bureaucrat.cpp
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####

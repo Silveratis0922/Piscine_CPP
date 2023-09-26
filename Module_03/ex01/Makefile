@@ -10,12 +10,13 @@ CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 _SRCS	=	main.cpp \
-			Fixed.cpp
+			ClapTrap.cpp \
+			ScavTrap.cpp
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####
 
-%.o: %.cpp
+%.o: %.cpp ClapTrap.hpp ScavTrap.hpp
 	@$(CC) -c $(CFLAGS) $< -o $@
 
 all: $(NAME)

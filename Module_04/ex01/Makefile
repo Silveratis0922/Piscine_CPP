@@ -5,19 +5,22 @@ BLUE	= \033[0;34m
 END		= \033[0m
 
 ##### Names #####
-NAME	= canon
+NAME	= animal
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 _SRCS	=	main.cpp \
-			ClapTrap.cpp \
-			ScavTrap.cpp \
-			FragTrap.cpp
+			Animal.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
+			Dog.cpp \
+			Cat.cpp \
+			Brain.cpp \
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####
 
-%.o: %.cpp ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+%.o: %.cpp Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
 	@$(CC) -c $(CFLAGS) $< -o $@
 
 all: $(NAME)
