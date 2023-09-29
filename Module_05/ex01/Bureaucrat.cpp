@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:22:08 by tchantro          #+#    #+#             */
-/*   Updated: 2023/09/29 13:27:40 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:53:24 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ unsigned int	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
+void	Bureaucrate::setAsk(bool)
+{
+	this->_ask = true;
+}
+
 Bureaucrat		Bureaucrat::operator++(int)
 {
 	Bureaucrat	tmp = *this;
@@ -93,6 +98,22 @@ Bureaucrat&		Bureaucrat::operator--(void)
 	return (*this);
 }
 
+void	Bureaucrat::signForm(Form const & f)
+{
+	if (f.getSigned() == true)
+		std::cout << _name << " signed " << f.getname() << std::endl;
+	else if (_ask == false)
+	{
+		std::cout << _name << " couldn't sign " << f.getName() << " because ";
+		std::cout << " not asking again." << std::endl;
+	}
+	else 
+	{
+		std::cout << _name << " couldn't sign " << f.getName() << " because ";
+		throw GradeTooLowEcepion();
+	}
+}
+
 std::ostream&	operator<<(std::ostream& o, Bureaucrat const & a)
 {
 	o << a.getName() << ", bureaucrat grade " << a.getGrade() << ".";
@@ -101,10 +122,10 @@ std::ostream&	operator<<(std::ostream& o, Bureaucrat const & a)
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.");
+	return ("Grade Bureaucrat is too high.");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.");
+	return ("Grade Bureaucrat is too low.");
 }
