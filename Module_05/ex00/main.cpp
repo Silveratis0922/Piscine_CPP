@@ -14,10 +14,19 @@
 
 int	main(void)
 {
-	Bureaucrat	test("Richard", 120);
+	try
+	{
+		Bureaucrat	test("test", 2);
 
-	std::cout << test << std::endl;
-	std::cout << test++ << std::endl;
-	std::cout << test << std::endl;
+		std::cout << test << std::endl;
+		--test;
+		std::cout << test << std::endl;
+		--test;
+		std::cout << test << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }

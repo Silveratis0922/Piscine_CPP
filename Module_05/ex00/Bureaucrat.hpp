@@ -34,6 +34,18 @@ class	Bureaucrat
 		Bureaucrat&			operator++(void);
 		Bureaucrat&			operator--(void);
 
+		class	GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
+		class	GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
 	private:
 		const std::string	_name;
 		unsigned int		_grade;

@@ -20,7 +20,11 @@ Bureaucrat::Bureaucrat(void)
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name), _grade(grade)
 {
-	std::cout << "Bureaucrat parametric constructor called" << std::endl;
+	std::cout << "Bureaucrat " << name << " parametric constructor called" << std::endl;
+	if (_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 	return ;
 }
 
@@ -61,25 +65,31 @@ unsigned int	Bureaucrat::getGrade(void) const
 Bureaucrat		Bureaucrat::operator++(int)
 {
 	Bureaucrat	tmp = *this;
-	--*this;
+	++*this;
 	return (tmp);
 }
 Bureaucrat		Bureaucrat::operator--(int)
 {
 	Bureaucrat	tmp = *this;
-	++*this;
+	--*this;
 	return (tmp);
 }
 
 Bureaucrat&		Bureaucrat::operator++(void)
 {
-	--_grade;
+	if (_grade == 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		--_grade;
 	return (*this);
 }
 
 Bureaucrat&		Bureaucrat::operator--(void)
 {
-	++_grade;
+	if (_grade == 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		++_grade;
 	return (*this);
 }
 
@@ -87,4 +97,14 @@ std::ostream&	operator<<(std::ostream& o, Bureaucrat const & a)
 {
 	o << a.getName() << ", bureaucrat grade " << a.getGrade() << ".";
 	return (o);
+}
+
+const char*	Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade is too high.");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low.");
 }
