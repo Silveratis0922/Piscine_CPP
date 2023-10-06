@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:22:08 by tchantro          #+#    #+#             */
-/*   Updated: 2023/10/04 12:09:28 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:16:19 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & egl)
 	if (this != &egl)
 	{
 		this->_grade = egl._grade;
+		this->_ask = egl._ask;
 	}
 	return (*this);
 }
@@ -105,7 +106,7 @@ Bureaucrat&		Bureaucrat::operator--(void)
 	return (*this);
 }
 
-void	Bureaucrat::signForm(Form const & f)
+void	Bureaucrat::signForm(AForm const & f)
 {
 	if (f.getSigned() == true && _ask == true)
 		std::cout << _name << " signed " << f.getName() << std::endl;
@@ -119,6 +120,16 @@ void	Bureaucrat::signForm(Form const & f)
 		std::cout << _name << " couldn't sign " << f.getName();
 		std::cout << " because grade too low" << std::endl;
 	}
+}
+
+void	Bureaucrat::excuteForm(AForm const & f)
+{
+	if (f.getSigned() == true && getGrade() > _grade)
+		std::cout << _name << " executed " << f.getName() << std::endl;
+	else if (f.getSigned() == false)
+		std::cout << f.getName() << " is not signed already" << std::endl;
+	else if (getGrade() < _grade)
+		std::cout << "Bureaucrate " << _name << " grade is too low for executing it." << std::endl;
 }
 
 std::ostream&	operator<<(std::ostream& o, Bureaucrat const & a)

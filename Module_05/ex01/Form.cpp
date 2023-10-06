@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:39:25 by tchantro          #+#    #+#             */
-/*   Updated: 2023/09/29 18:01:03 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:48:00 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,13 @@ bool	Form::getSigned(void) const
 	return (this->_signed);
 }
 
-void	Form::beSigned(Bureaucrat const & b)
+void	Form::beSigned(Bureaucrat & b)
 {
+	b.setAsk();
 	if (_sig_grade < b.getGrade())
 		throw GradeTooLowException();
 	else
-	{
 		_signed = true;
-		//b.setAsk(_ask);
-	}
 }
 
 const char*	Form::GradeTooHighException::what() const throw()

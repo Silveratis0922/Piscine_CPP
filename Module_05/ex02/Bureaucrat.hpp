@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:22:02 by tchantro          #+#    #+#             */
-/*   Updated: 2023/10/04 12:08:45 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:16:25 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <string>
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class	Bureaucrat
 {
@@ -29,10 +29,11 @@ class	Bureaucrat
 		Bureaucrat & operator=(Bureaucrat const & egl); //copy assignment operator
 		~Bureaucrat(void); //destructor
 
+		void				excuteForm(AForm const & form);
 		const std::string	getName(void) const;
 		unsigned int		getGrade(void) const;
 		bool				getAsk(void) const;
-		void				signForm(Form const & f);
+		void				signForm(AForm const & f);
 		void				setAsk(void);
 
 		Bureaucrat			operator++(int);
