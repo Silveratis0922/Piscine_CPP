@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:00:00 by tchantro          #+#    #+#             */
-/*   Updated: 2023/10/09 16:00:00 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:26:54 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & rhs)
 	std::cout << "ScalarConverter Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-
+		this->_c = rhs._c;
+		this->_i = rhs._i;
+		this->_f = rhs._f;
+		this->_d = rhs._d;
 	}
 	return (*this);
 }
@@ -43,5 +46,7 @@ ScalarConverter::~ScalarConverter(void)
 
 std::ostream&   operator<<(std::ostream& o, ScalarConverter const & a)
 {
+	(void) a;
+	o << "test";
 	return (o);
 }

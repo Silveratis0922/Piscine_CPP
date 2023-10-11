@@ -10,19 +10,9 @@ CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 _SRCS	=	main.cpp \
-			Bureaucrat.cpp \
-			AForm.cpp \
-			ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp \
-			PresidentialPardonForm.cpp \
-			Intern.cpp
+			ScalarConverter.cpp
 
-_HDRS	=	Bureaucrat.hpp \
-			Form.hpp \
-			ShrubberyCreationForm.hpp \
-			RobotomyRequestForm.hpp \
-			PresidentialPardonForm.hpp \
-			Intern.hpp
+_HDRS	=	ScalarConverter.hpp
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####

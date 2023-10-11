@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:00:00 by tchantro          #+#    #+#             */
-/*   Updated: 2023/10/09 16:00:00 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:21:53 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ class	ScalarConverter
 		ScalarConverter & operator=(ScalarConverter const & rhs); //copy assignment operator
 		~ScalarConverter(void); //destructor
 
-	protected:
 	private:
+		char	_c;
+		int		_i;
+		float	_f;
+		double	_d;
 };
 
 std::ostream&   operator<<(std::ostream& o, ScalarConverter const & a);
