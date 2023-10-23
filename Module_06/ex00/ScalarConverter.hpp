@@ -15,6 +15,10 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
+#include <iomanip>
+#include <cstdlib>
+#include <vector>
 
 class	ScalarConverter
 {
@@ -24,11 +28,11 @@ class	ScalarConverter
 		ScalarConverter & operator=(ScalarConverter const & rhs); //copy assignment operator
 		~ScalarConverter(void); //destructor
 
-	private:
-		char	_c;
-		int		_i;
-		float	_f;
-		double	_d;
+		static void		convert(std::string str);
+		static bool		isChar(std::string str);
+		static bool		isInt(std::string str);
+		static bool		isFloat(std::string str);
+		static bool		isDouble(std::string str);
 };
 
 std::ostream&   operator<<(std::ostream& o, ScalarConverter const & a);
