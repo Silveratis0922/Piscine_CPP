@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 13:23:28 by tchantro          #+#    #+#             */
-/*   Updated: 2023/10/23 10:51:59 by tchantro         ###   ########.fr       */
+/*   Created: 2023/10/25 16:06:36 by tchantro          #+#    #+#             */
+/*   Updated: 2023/10/25 16:47:15 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Base.hpp"
 
-int	main(int argc, char **argv)
+
+Base::~Base(void)
 {
-	if (argc != 2)
-	{
-		std::cout << "Please enter only one argument." << std::endl;
-		return (1);
-	}
-	std::string str = argv[1];
+	std::cout << "Base destructor called" << std::endl;
+	return
+}
 
-	if (str.length() == 0)
-		return (std::cout << "Empty argument" << std::endl, 0);
+Base*	Base::generate(void);
+{
+	srand((unsigned) time(NULL));
+	int		random = rand() % 3;
 
-	ScalarConverter::convert(str);
-	return (0);
+	std::cout << "Random = " << std::endl;
+	if (random == 0)
+		return (dynamic_cast<A>();
+	else if (random == 1)
+		return (dynamic_cast<B>();
+	else
+		return (dynamic_cast<C>();
 }

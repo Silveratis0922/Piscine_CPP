@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 13:23:28 by tchantro          #+#    #+#             */
-/*   Updated: 2023/10/23 10:51:59 by tchantro         ###   ########.fr       */
+/*   Created: 2023/10/25 15:08:58 by tchantro          #+#    #+#             */
+/*   Updated: 2023/10/25 15:44:02 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef DATA_H
+# define DATA_H
 
-int	main(int argc, char **argv)
+typedef struct	s_data
 {
-	if (argc != 2)
-	{
-		std::cout << "Please enter only one argument." << std::endl;
-		return (1);
-	}
-	std::string str = argv[1];
+	int	i;
+}	Data;
 
-	if (str.length() == 0)
-		return (std::cout << "Empty argument" << std::endl, 0);
-
-	ScalarConverter::convert(str);
-	return (0);
-}
+#endif

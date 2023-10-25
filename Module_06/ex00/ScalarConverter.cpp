@@ -6,7 +6,7 @@
 /*   By: tchantro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:00:00 by tchantro          #+#    #+#             */
-/*   Updated: 2023/10/10 13:26:54 by tchantro         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:16:36 by tchantro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,24 +98,99 @@ bool	ScalarConverter::isInt(std::string str)
 
 bool	ScalarConverter::isFloat(std::string str)
 {
-	if (str[str.length() - 1] == 'f' || str == "nanf" || str == "-inff" || str == "+inff")
+	if (str[str.length() - 1] != 'f')
+		return (false);
+	else if (str == "nanf" || str == "-inff" || str == "+inff")
 	{
 		std::cout << "This is a float: '" << str << "'" << std::endl;
+		float	f = atof(str.c_str());
+		std::cout << "char   : Impossible" << std::endl;
+		std::cout << "int    : Impossible" << std::endl;
+		std::cout << "float  : " << f << std::endl;
+		std::cout << "double : " << static_cast<double>(f) << std::endl;
 		return (true);
 	}
 	else
-		return (false);
+	{
+		size_t	i = 0;
+		int		dec = 0;
+		for (;i < str.length() - 1; i++)
+		{
+			if (!isdigit(str[i]) && !(i == 0 && str[i] == '-'))
+					break ;
+		}
+		if (str[i] == '.')
+			i++;
+		else
+			return (false);
+		for (; i < str.length() - 1; i++)
+		{
+			dec++;
+			if (!isdigit(str[i]))
+				return (false);
+		}
+		std::cout << "This is a float: '" << str << "'" << std::endl;
+		float	f = atof(str.c_str());
+		std::cout << std::fixed;
+		if (f > 127 || f < 0)
+			std::cout << "char   : Not in char range" << std::endl;
+		else if (f < 32)
+			std::cout << "char   : Not displayable" << std::endl;
+		else
+			std::cout << "char   : " << static_cast<char>(f) << std::endl;
+		std::cout << "int    : " << static_cast<int>(f) << std::endl;
+		std::cout << "float  : " << std::setprecision(dec) << f << "f" << std::endl;
+		std::cout << "double : " << static_cast<double>(f) << std::endl;
+		return (true);
+	}
 }
 
 bool	ScalarConverter::isDouble(std::string str)
 {
-	if (str.at(1) == '.' || str == "nan" || str == "-inf" || str == "+inf")
+	if (str == "nan" || str == "-inf" || str == "+inf")
 	{
 		std::cout << "This is a double '" << str << "'" << std::endl;
+		double	d = atof(str.c_str());
+		std::cout << "char   : Impossible" << std::endl;
+		std::cout << "int    : Impossible " << std::endl;
+		std::cout << "float  : " << static_cast<float>(d) << std::endl;
+		std::cout << "double : " << d << std::endl;
 		return (true);
 	}
 	else
-		return (false);
+	{
+		size_t	i = 0;
+		int		dec = 0;
+		for (;i < str.length(); i++)
+		{
+			if (!isdigit(str[i]) && !(i == 0 && str[i] == '-'))
+					break ;
+		}
+		if (str[i] == '.')
+			i++;
+		else
+			return (false);
+		for (; i < str.length(); i++)
+		{
+			dec++;
+			if (!isdigit(str[i]))
+				return (false);
+		}
+		std::cout << "This is a double: '" << str << "'" << std::endl;
+		float	d = atof(str.c_str());
+		std::cout << std::fixed;
+		if (d > 127 || d < 0)
+			std::cout << "char   : Not in char range" << std::endl;
+		else if (d < 32)
+			std::cout << "char   : Not displayable" << std::endl;
+		else
+			std::cout << "char   : " << static_cast<char>(d) << std::endl;
+		std::cout << "int    : " << static_cast<int>(d) << std::endl;
+		std::cout << "float  : " << std::setprecision(dec) << static_cast<float>(d) << "f" << std::endl;
+		std::cout << "double : " << d << std::endl;
+		return (true);
+
+	}
 }
 
 void	ScalarConverter::convert(std::string str)
