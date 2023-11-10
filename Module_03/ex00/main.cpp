@@ -15,8 +15,13 @@
 int	main(void)
 {
 	ClapTrap	Bobby("Bobby");
+	ClapTrap	Daisy(Bobby);
 
 	Bobby.info_character();
+	Daisy.info_character();
+
+
+	/*Bobby.info_character();
 	Bobby.attack("Daisy");
 	Bobby.takeDamage(4);
 	Bobby.info_character();
@@ -46,6 +51,6 @@ int	main(void)
 	Bobby.beRepaired(1);
 	Bobby.info_character();
 	Bobby.attack("Daisy");
-	Bobby.takeDamage(4);
+	Bobby.takeDamage(4);*/
 	return (0);
 }

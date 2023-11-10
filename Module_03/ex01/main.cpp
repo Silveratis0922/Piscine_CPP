@@ -18,7 +18,9 @@ int	main(void)
 	ScavTrap	Bobby("Bobby");
 	ClapTrap	Dodo("Bobby");
 
-	Bobby.attack("Daisy");
-	Dodo.attack("Daisy");
+	//Bobby.attack("Daisy");
+	//Dodo.attack("Daisy");
+	Bobby.takeDamage(4);
+	Dodo.takeDamage(4);
 	return (0);
 }

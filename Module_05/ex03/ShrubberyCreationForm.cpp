@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void)
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : _target(target), AForm("Shrubbery",145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery",145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm Parametric constructor called" << std::endl;
 	return ;
@@ -60,6 +60,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
 		throw ExecTooLowException();
 	else
 	{
+		std::cout << "File created." << std::endl;
 		std::string		filename = getTarget() + "_shrubbery";
 		std::ofstream	form(filename.c_str());
 		

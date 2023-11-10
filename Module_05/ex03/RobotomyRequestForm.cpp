@@ -18,7 +18,7 @@ RobotomyRequestForm::RobotomyRequestForm(void)
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : _target(target), AForm("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy", 72, 45), _target(target)
 {
 	std::cout << "RobotomyRequestForm Parametric constructor called" << std::endl;
 	return ;

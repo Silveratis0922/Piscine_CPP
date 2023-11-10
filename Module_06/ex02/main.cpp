@@ -14,5 +14,9 @@
 
 int	main(void)
 {
+	Base* random = generate();
+
+	identify(random);
+	identify(*random);
 	return (0);	
 }

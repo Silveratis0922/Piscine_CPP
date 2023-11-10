@@ -37,6 +37,4 @@ class	Intern
 	private:
 };
 
-std::ostream&   operator<<(std::ostream& o, Intern const & a);
-
 #endif

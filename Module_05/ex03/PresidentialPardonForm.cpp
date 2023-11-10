@@ -21,9 +21,9 @@ PresidentialPardonForm::PresidentialPardonForm(void)
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : _target(target), AForm("Presitential", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presitential", 25, 5), _target(target)
 {
-	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
+	std::cout << "PresidentialPardonForm Parametric constructor called" << std::endl;
 	return ;
 }
 

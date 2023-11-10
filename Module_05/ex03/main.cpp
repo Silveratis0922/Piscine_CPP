@@ -23,53 +23,128 @@
 
 int	main(void)
 {
-/*	AForm		test("Testing", 80, 120);
-	Bureaucrat	nop("Bob", 70);
-	Bureaucrat  yep("DD", 100);
+	Bureaucrat	james("James", 132);
+	Bureaucrat	jim("Jim", 47);
+	Bureaucrat	jack("Jack", 26);
+	Bureaucrat	joe("Joe", 5);
+	Intern 		someRandomIntern;
 
+	std::cout << std::endl;
+	AForm*	s = someRandomIntern.makeForm("shrubbery creation", "garden");
+	std::cout << std::endl;
+	AForm*	r = someRandomIntern.makeForm("robotomy request", "Your neighbour");
+	std::cout << std::endl;
+	AForm*	p = someRandomIntern.makeForm("presidential pardon", "John");
+	std::cout << std::endl;
+	AForm*	wrongForm = someRandomIntern.makeForm("unknowned form", "Nemo");
+	std::cout << std::endl;
+
+	// *** James -> Shrubbery Creation Form ***
+	std::cout << james << std::endl;
 	try
 	{
-	nop.signForm(test);
-	std::cout << test << std::endl;
-	test.beSigned(nop);
-	std::cout << test << std::endl;
+		std::cout << "James wants to execute Shrubbery Creation Form:" << std::endl;
+		s->execute(james);
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << yep << std::endl;
-	yep.signForm(test);
-	return (0);*/
-/*	ShrubberyCreationForm	S("Shrub");
-	RobotomyRequestForm		R("Robot");
-	PresidentialPardonForm	P("President");
-	Bureaucrat				nop("Bob", 1);
-
 	try
 	{
-		S.beSigned(nop);
-		R.beSigned(nop);
-		P.beSigned(nop);
-		S.execute(nop);
-		std::cout << std::endl;
-		R.execute(nop);
-		std::cout << std::endl;
-		P.execute(nop);
-		std::cout << std::endl;
+		std::cout << "James wants to sign Shrubbery Creation Form:" << std::endl;
+		s->beSigned(james);
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
-	}*/
+	}
+	try
+	{
+		std::cout << "James wants to execute Shrubbery Creation Form:" << std::endl;
+		s->execute(james);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	Intern someRandomIntern;
-	AForm* rrf;
+	std::cout << std::endl;
 
-	rrf = someRandomIntern.makeForm("robotom request", "Bender");
+	// *** Jim -> Robotomy Request Form ***
+	std::cout << jim << std::endl;
+	try
+	{
+		std::cout << "Jim wants to sign Shrubbery Creation Form:" << std::endl;
+		r->beSigned(jim);
+		std::cout << "Jim signed Shrubbery Creation Form!" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		std::cout << "Jim wants to execute Robotomy Request Form:" << std::endl;
+		r->execute(jim);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	if (rrf)
-		std::cout << *rrf << std::endl;
-	delete rrf;
+	std::cout << std::endl;
+
+	// *** Jack -> Presidential Pardon Form ***
+	std::cout << jack << std::endl;
+	try
+	{
+		std::cout << "Jack wants to execute Presidential Pardon Forn:" << std::endl;
+		p->execute(jack);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		std::cout << "Jack wants to sign Presidential Pardon Form:" << std::endl;
+		p->beSigned(jack);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	// *** Joe -> Presidential Pardon Form ***
+	std::cout << joe;
+	try
+	{
+		std::cout << "Joe wants to sign Presidential Pardon Form:" << std::endl;
+		p->beSigned(joe);
+		std::cout << "Joe signed Presidential Pardon Form!" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		std::cout << "Joe wants to execute Presidential Pardon Form:" << std::endl;
+		p->execute(joe);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	delete s;
+	delete r;
+	delete p;
+	delete wrongForm;
 	return (0);
 }

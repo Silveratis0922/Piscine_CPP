@@ -76,8 +76,3 @@ AForm*	Intern::makeForm(std::string form, std::string target)
 	std::cout << "Wrong name form." << std::endl;
 	return (NULL);
 }
-
-std::ostream&   operator<<(std::ostream& o, Intern const & a)
-{
-	return (o);
-}
