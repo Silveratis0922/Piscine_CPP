@@ -5,14 +5,13 @@ BLUE	= \033[0;34m
 END		= \033[0m
 
 ##### Names #####
-NAME	= cast
+NAME	= template
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-_SRCS	=	main.cpp \
-			Base.cpp
+_SRCS	=	main.cpp
 
-_HDRS	=	Base.hpp
+_HDRS	=	iter.hpp
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####
