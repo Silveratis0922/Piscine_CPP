@@ -5,14 +5,14 @@ BLUE	= \033[0;34m
 END		= \033[0m
 
 ##### Names #####
-NAME	= template
+NAME	= container
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-_SRCS	=	main.cpp
+_SRCS	=	main.cpp \
+			Span.cpp
 			
-
-_HDRS	=	Array.hpp
+_HDRS	=	Span.hpp
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####

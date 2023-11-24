@@ -15,17 +15,19 @@ void	iter(T *adrs, int length, void (*f)(T))
 
 template<typename T>
 
-void	print(T const &content)
+void	iter(T	*adrs, int length, void (*f)(T const &))
 {
-	std::cout << content << std::endl;
+	for (int i = 0; i < length; i++)
+	{
+		f(adrs[i]);
+	}
 }
 
 template<typename T>
 
-void	add_one(T content)
+void	my_print(T const &content)
 {
-	content++;
-	print(content);
+	std::cout << content << std::endl;
 }
 
 #endif
