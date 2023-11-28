@@ -24,7 +24,9 @@ Span & Span::operator=(Span const & rhs)
 	std::cout << "Span Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-
+		this->_size = rhs._size;
+		this->_add = rhs._add;
+		this->_vector = rhs._vector;
 	}
 	return (*this);
 }
