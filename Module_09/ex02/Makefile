@@ -10,9 +10,9 @@ CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 _SRCS	=	main.cpp \
-			PmergeMe.cpp
+			#PmergeMe.cpp
 
-_HDRS	=	PmergeMe.hpp
+_HDRS	=	PmergeMe2.hpp
 
 OBJS	= $(_SRCS:.cpp=.o)
 ##### Makefile work ####

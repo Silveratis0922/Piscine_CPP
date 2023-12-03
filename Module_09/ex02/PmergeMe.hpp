@@ -5,6 +5,9 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <deque>
+
+template<typename T>
 
 class	PmergeMe
 {
@@ -15,19 +18,16 @@ class	PmergeMe
 		PmergeMe & operator=(PmergeMe const & rhs); //copy assignment operator
 		~PmergeMe(void); //destructor
 
-		void	print_before(std::vector<int> cont);
-		void	print_after(std::vector<int> cont);
-		void	Ford_Johnson_algorithm(std::vector<int> &lst);
-		void	merge_insert(std::vector<int> &left, std::vector<int> &right, std::vector<int> &result);
-		std::vector<int>	getCont(void) const;
+		void	Ford_Johnson_algorithm(T &lst);
+		void	merge_insert(T &left, T &right, T &result);
 
-		std::vector<int>	_cont;
+		T	_cont;
 	protected:
 	private:
 };
 
-std::vector<int>		init_vec(std::vector<int> &vec, int nbr);
-std::ostream&   operator<<(std::ostream& o, PmergeMe const & a);
+//template <typename T>
+//std::ostream&   operator<<(std::ostream& o, PmergeMe<T> const & a);
 
 #endif
 

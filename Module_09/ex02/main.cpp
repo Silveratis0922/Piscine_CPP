@@ -1,96 +1,44 @@
-#include "PmergeMe.hpp"
-
-
-/*void fusion_insertion(std::vector<int>& gauche, std::vector<int>& droite, std::vector<int>& resultat) {
-    size_t i = 0, j = 0;
-
-    while (i < gauche.size() && j < droite.size()) {
-        if (gauche[i] < droite[j]) {
-            resultat.push_back(gauche[i]);
-            i++;
-        } else {
-            resultat.push_back(droite[j]);
-            j++;
-        }
-    }
-
-    while (i < gauche.size()) {
-        resultat.push_back(gauche[i]);
-        i++;
-    }
-
-    while (j < droite.size()) {
-        resultat.push_back(droite[j]);
-        j++;
-    }
-}
-
-void tri_fusion_insertion(std::vector<int>& liste) {
-    if (liste.size() <= 1) {
-        return;
-    }
-
-    int milieu = liste.size() / 2;
-    std::vector<int> gauche(liste.begin(), liste.begin() + milieu);
-    std::vector<int> droite(liste.begin() + milieu, liste.end());
-
-    tri_fusion_insertion(gauche);
-    tri_fusion_insertion(droite);
-
-    liste.clear();
-    fusion_insertion(gauche, droite, liste);
-}*/
+#include "PmergeMe2.hpp"
 
 int main(int argc, char **argv)
 {
-	/*
-		for (int i = 1; i < argc; i++)
-		{
-			if (!check_input(argv[i])
-				return (std::cout << "Error" << std::endl, 1);
-		}
-	*/
-	//std::vector<int> vec;
-	PmergeMe	test(argc, argv);
 
-/*	for (int i = 1; i < argc; i++)
+	for (int i = 1; i < argc; i++)
 	{
-		std::string	str  = argv[i];
-		vec = init_vec(vec, atoi(str.c_str()));
-	}*/
+		std::string		str(argv[i]);
+		if (!check_input(str))
+			return (std::cout << "Error" << std::endl, 1);
+		}
+	PmergeMe<std::deque<int> >	deq(argc, argv);
+	PmergeMe<std::vector<int> >	vec(argc, argv);
 
-	//print_list(test.getCont());
     std::cout << "Liste non triée : ";
+	std::cout << deq << std::endl;
 	std::cout << test << std::endl;
 
-    /*for (; it != vec.end(); it++) {
-        std::cout << *it << " ";
-    }*/
-    //std::cout << std::endl;
+	clock_t	d_start = clock();
+	deq.Ford_Johnson_algorithm(deq._cont);
+	clock_t	d_end = clock();
 
-    // Utiliser la fonction de tri
-    //tri_fusion_insertion(vec);
-	//std::vector<int>	vec = test.getCont();
-	//std::vector<int>::iterator	it = vec.begin();
+	std::cout << "Liste triée : ";
+	std::cout << deq << std::endl;
 
-	test.Ford_Johnson_algorithm(test._cont);
-
-	//test.getCont() = vec;
-	//print_list(test.getCont())
-    std::cout << "Liste triée : ";
-	std::cout << test << std::endl;
-    /*for (it = vec.begin(); it != vec.end(); it++) {
-        std::cout << *it << " ";
-    }*/
-    //std::cout << std::endl;
+	std::cout << std::fixed;
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : ";
+	std::cout << (static_cast<float>(d_end - d_start)) / CLOCKS_PER_SEC << " s" << std::endl;
+    
+	clock_t	v_start = clock();
+	vec.Ford_Johnson_algorithm(vec._cont);
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : ";
+	std::cout << (static_cast<float>(clock() - v_start)) / CLOCKS_PER_SEC << " s" << std::endl;
 
     return 0;
 }
 
-
 // A faire :
 
 /*
-	Faire en sorte que ca marche avec un template de classe
-	et verifier se qu'il se passe reellement dans la liste pour voir si tout ce passe bien.
+	- Faire en sorte que ca marche avec un template de classe
+	- Faire le parcing des arguments
+	- Print le time de chaque container.
 */

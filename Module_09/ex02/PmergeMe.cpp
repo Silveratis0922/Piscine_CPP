@@ -1,31 +1,34 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(void)
+template<typename T>
+PmergeMe<T>::PmergeMe(void)
 {
 	std::cout << "PmergeMe Default constructor called" << std::endl;
 	return ;
 }
 
-PmergeMe::PmergeMe(int argc, char **argv)
+template<typename T>
+PmergeMe<T>::PmergeMe(int argc, char **argv)
 {
 	std::cout << "PmergeMe Parametric constructor called" << std::endl;
 	for (int i = 1; i < argc; i++)
 	{
 		std::string str = argv[i];
-		//_cont = init_cont(_cont, atoi(str.c_str());
 		_cont.push_back(atoi(str.c_str()));
 	}
 	return ;
 }
 
-PmergeMe::PmergeMe(PmergeMe const & src)
+template<typename T>
+PmergeMe<T>::PmergeMe(PmergeMe<T> const & src)
 {
 	std::cout << "PmergeMe Copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
-PmergeMe & PmergeMe::operator=(PmergeMe const & rhs)
+template<typename T>
+PmergeMe<T> & PmergeMe<T>::operator=(PmergeMe<T> const & rhs)
 {
 	std::cout << "PmergeMe Copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -35,20 +38,22 @@ PmergeMe & PmergeMe::operator=(PmergeMe const & rhs)
 	return (*this);
 }
 
-PmergeMe::~PmergeMe(void)
+template<typename T>
+PmergeMe<T>::~PmergeMe(void)
 {
 	std::cout << "PmergeMe Destructor called" << std::endl;
 	return ;
 }
 
-void	PmergeMe::Ford_Johnson_algorithm(std::vector<int> &lst)
+template<typename T>
+void	PmergeMe<T>::Ford_Johnson_algorithm(T &lst)
 {
 	if (lst.size() <= 1)
 		return ;
 
 	int					half = lst.size() / 2;
-	std::vector<int>	left(lst.begin(), lst.begin() + half);
-	std::vector<int>	right(lst.begin() + half, lst.end());
+	T	left(lst.begin(), lst.begin() + half);
+	T	right(lst.begin() + half, lst.end());
 
 	Ford_Johnson_algorithm(left);
 	Ford_Johnson_algorithm(right);
@@ -56,7 +61,8 @@ void	PmergeMe::Ford_Johnson_algorithm(std::vector<int> &lst)
 	merge_insert(left, right, lst);
 }
 
-void	PmergeMe::merge_insert(std::vector<int> &left, std::vector<int> &right, std::vector<int> &result)
+template<typename T>
+void	PmergeMe<T>::merge_insert(T &left, T &right, T &result)
 {
 	size_t	i = 0;
 	size_t	j = 0;
@@ -86,51 +92,15 @@ void	PmergeMe::merge_insert(std::vector<int> &left, std::vector<int> &right, std
 	}
 }
 
-std::vector<int>	PmergeMe::getCont(void) const
+/*template<typename T>
+std::ostream&	operator<<(std::ostream& o, PmergeMe<T> const & a)
 {
-	return (this->_cont);
-}
-
-void	PmergeMe::print_before(std::vector<int> cont)
-{
-	std::vector<int>::iterator	it;
-
-	std::cout << "Before : ";
-	for (it = cont.begin(); it != cont.end(); it++)
-	{
-		std::cout << *it << " ";
-	}
-	std::cout << std::endl;
-
-	Ford_Johnson_algorithm(cont);
-}
-
-void	PmergeMe::print_after(std::vector<int> cont)
-{
-	std::vector<int>::iterator	it;
-
-	std::cout << "After : ";
-	for (it = cont.begin(); it != cont.end(); it++)
-	{
-		std::cout << *it << " ";
-	}
-	std::cout << std::endl;
-}
-
-std::vector<int>	init_vec(std::vector<int>	&vec, int nbr)
-{
-	vec.push_back(nbr);
-	return (vec);
-}
-
-std::ostream&	operator<<(std::ostream& o, PmergeMe const & a)
-{
-	std::vector<int>	print = a._cont;
-	std::vector<int>::iterator	it;
+	T	print = a._cont;
+	typename	T::iterator	it;
 
 	for (it = print.begin(); it != print.end(); it++)
 	{
 		o << *it << " ";
 	}
 	return (o);
-}
+}*/

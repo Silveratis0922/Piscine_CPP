@@ -24,7 +24,8 @@ RPN & RPN::operator=(RPN const & rhs)
 	std::cout << "RPN Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-
+		this->_input = rhs._input;
+		this->_stack = rhs._stack;
 	}
 	return (*this);
 }
